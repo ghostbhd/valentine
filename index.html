@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floral Concept - Concours Saint Valentin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff9fa;
+            color: #333;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(255,105,180,0.1) 0%, rgba(255,255,255,0.8) 50%, rgba(255,105,180,0.1) 100%);
+        }
+        
+        .countdown-item {
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .prize-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .prize-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .form-container {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,240,245,0.9) 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b8b 0%, #ff8e9e 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,105,180,0.4);
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-leaf text-3xl text-pink-500 mr-2"></i>
+                <h1 class="text-2xl font-bold text-pink-600 font-serif">Floral Concept</h1>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="text-gray-700 hover:text-pink-500 transition">Accueil</a>
+                <a href="#" class="text-gray-700 hover:text-pink-500 transition">Boutique</a>
+                <a href="#" class="text-gray-700 hover:text-pink-500 transition">Services</a>
+                <a href="#" class="text-gray-700 hover:text-pink-500 transition">Contact</a>
+            </div>
+            <button class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-1 bg-pink-500 mr-2"></div>
+                    <span class="text-pink-500 font-semibold">Concours Saint Valentin</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif">
+                    <span class="text-pink-600">Gagnez</span> des cadeaux exceptionnels !
+                </h1>
+                <p class="text-lg text-gray-600 mb-8">
+                    Pour célébrer nos 10 ans, Floral Concept vous offre l'opportunité de gagner des bons d'achat jusqu'à 1000DH et une magnifique Renault Clio rouge !
+                </p>
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                        <i class="fas fa-gift text-pink-500 mr-2"></i>
+                        <span>Bons d'achat</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                        <i class="fas fa-car text-pink-500 mr-2"></i>
+                        <span>Renault Clio</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow">
+                        <i class="fas fa-heart text-pink-500 mr-2"></i>
+                        <span>Saint Valentin</span>
+                    </div>
+                </div>
+                <a href="#participer" class="btn-primary text-white font-semibold py-3 px-8 rounded-full inline-block">
+                    Participer maintenant <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            <div class="md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Bouquet de fleurs" class="rounded-lg shadow-xl w-full max-w-md mx-auto">
+                <div class="absolute -top-6 -left-6 bg-white p-4 rounded-full shadow-lg heart-beat hidden md:block">
+                    <i class="fas fa-heart text-4xl text-pink-500"></i>
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-full shadow-lg floating hidden md:block">
+                    <i class="fas fa-car text-4xl text-red-500"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="py-12 bg-pink-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-2 font-serif">Le tirage au sort aura lieu dans :</h2>
+            <div class="flex justify-center space-x-4 md:space-x-8 mt-8">
+                <div class="countdown-item py-4 px-6 md:px-8">
+                    <div class="text-3xl md:text-5xl font-bold text-pink-600" id="days">00</div>
+                    <div class="text-gray-600">Jours</div>
+                </div>
+                <div class="countdown-item py-4 px-6 md:px-8">
+                    <div class="text-3xl md:text-5xl font-bold text-pink-600" id="hours">00</div>
+                    <div class="text-gray-600">Heures</div>
+                </div>
+                <div class="countdown-item py-4 px-6 md:px-8">
+                    <div class="text-3xl md:text-5xl font-bold text-pink-600" id="minutes">00</div>
+                    <div class="text-gray-600">Minutes</div>
+                </div>
+                <div class="countdown-item py-4 px-6 md:px-8">
+                    <div class="text-3xl md:text-5xl font-bold text-pink-600" id="seconds">00</div>
+                    <div class="text-gray-600">Secondes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Les lots à gagner</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Découvrez les magnifiques prix que vous pourriez remporter pour cette Saint Valentin exceptionnelle
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Prize 1 -->
+                <div class="prize-card bg-white rounded-xl p-6 text-center">
+                    <div class="bg-pink-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-gift text-3xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Bon d'achat 1000DH</h3>
+                    <p class="text-gray-600 mb-4">
+                        À dépenser dans notre boutique pour des fleurs, compositions et cadeaux.
+                    </p>
+                    <div class="text-pink-500 font-bold text-lg">1 gagnant</div>
+                </div>
+                
+                <!-- Prize 2 -->
+                <div class="prize-card bg-white rounded-xl p-6 text-center">
+                    <div class="bg-pink-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-gift text-3xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Bon d'achat 500DH</h3>
+                    <p class="text-gray-600 mb-4">
+                        Parfait pour offrir un magnifique bouquet à votre bien-aimé(e).
+                    </p>
+                    <div class="text-pink-500 font-bold text-lg">3 gagnants</div>
+                </div>
+                
+                <!-- Prize 3 -->
+                <div class="prize-card bg-white rounded-xl p-6 text-center relative">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 rounded-bl-lg rounded-tr-lg text-xs font-bold">
+                        GRAND PRIX
+                    </div>
+                    <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-car text-3xl text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Renault Clio rouge</h3>
+                    <p class="text-gray-600 mb-4">
+                        Une voiture flamboyante pour une Saint Valentin inoubliable.
+                    </p>
+                    <div class="text-red-500 font-bold text-lg">1 gagnant</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Participate Section -->
+    <section class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Comment participer ?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    C'est très simple et rapide pour tenter de remporter l'un de nos fabuleux lots
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">1</div>
+                    <h3 class="text-xl font-bold mb-2">Entrez votre numéro</h3>
+                    <p class="text-gray-600">
+                        Renseignez votre numéro de téléphone dans le formulaire de participation
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
+                    <h3 class="text-xl font-bold mb-2">Validez votre participation</h3>
+                    <p class="text-gray-600">
+                        Confirmez votre participation en cliquant sur le lien que vous recevrez par SMS
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
+                    <h3 class="text-xl font-bold mb-2">Attendez le tirage</h3>
+                    <p class="text-gray-600">
+                        Le tirage au sort aura lieu le 14 février à 18h. Les gagnants seront contactés par téléphone
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participation Form -->
+    <section id="participer" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="form-container max-w-2xl mx-auto rounded-xl p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-2 font-serif">Participez au concours</h2>
+                    <p class="text-gray-600">
+                        Entrez votre numéro de téléphone pour tenter de gagner l'un de nos fabuleux lots
+                    </p>
+                </div>
+                
+                <form id="contestForm" class="space-y-6">
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Numéro de téléphone</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="text-gray-500">+212</span>
+                            </div>
+                            <input type="tel" id="phone" name="phone" placeholder="6 12 34 56 78" 
+                                   class="w-full pl-16 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500" 
+                                   required pattern="[0-9]{9}" title="Entrez un numéro marocain valide (9 chiffres)">
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded" required>
+                        <label for="terms" class="ml-2 block text-sm text-gray-700">
+                            J'accepte les <a href="#" class="text-pink-600 hover:text-pink-800">conditions générales</a> du concours
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="btn-primary w-full text-white font-semibold py-3 px-4 rounded-lg">
+                            Valider ma participation <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="successMessage" class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-lg">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Votre participation a bien été enregistrée ! Un SMS de confirmation vous a été envoyé.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Ils nous font confiance</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Découvrez ce que nos clients disent de Floral Concept
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-pink-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-pink-600 font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold">Amine</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "J'ai offert un bouquet à ma femme pour notre anniversaire, elle était ravie ! Le service est impeccable et les fleurs durent longtemps."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-pink-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-pink-600 font-bold mr-4">S</div>
+                        <div>
+                            <h4 class="font-bold">Salma</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "Livraison toujours à l'heure, fleurs fraîches et magnifiques. Je recommande Floral Concept pour toutes les occasions spéciales."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-pink-50 p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center text-pink-600 font-bold mr-4">Y</div>
+                        <div>
+                            <h4 class="font-bold">Youssef</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "Concours génial ! J'ai gagné un bon d'achat de 200DH l'année dernière. Cette année j'espère la voiture ! Service client très réactif."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">Questions fréquentes</h2>
+                <p class="text-lg text-gray-600">
+                    Trouvez les réponses aux questions les plus posées sur notre concours
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- Question 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left font-semibold text-lg">
+                        <span>Qui peut participer au concours ?</span>
+                        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 hidden">
+                        <p>Toute personne résidant au Maroc et âgée de 18 ans ou plus peut participer au concours. Un seul participation par numéro de téléphone est autorisée.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left font-semibold text-lg">
+                        <span>Comment serai-je informé si je gagne ?</span>
+                        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 hidden">
+                        <p>Les gagnants seront contactés par téléphone dans les 48 heures suivant le tirage au sort. Nous publierons également les résultats sur notre page Facebook officielle.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left font-semibold text-lg">
+                        <span>Quand aura lieu le tirage au sort ?</span>
+                        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 hidden">
+                        <p>Le tirage au sort aura lieu le 14 février 2023 à 18h00 (heure marocaine) dans nos locaux. Le processus sera filmé et disponible sur notre site web.</p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left font-semibold text-lg">
+                        <span>Comment récupérer mon prix si je gagne ?</span>
+                        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-3 text-gray-600 hidden">
+                        <p>Pour les bons d'achat : vous recevrez un code par SMS à utiliser sur notre site web ou en boutique. Pour la voiture : vous serez invité à venir la récupérer dans notre agence partenaire avec les documents nécessaires.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-leaf text-2xl text-pink-500 mr-2"></i>
+                        <h3 class="text-xl font-bold">Floral Concept</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Créateur d'émotions florales depuis 10 ans. Offrez le meilleur pour vos proches.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liens utiles</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">Accueil</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">Boutique</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Informations</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">CGV</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">Mentions légales</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">Politique de confidentialité</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition">Conditions du concours</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-pink-500 mr-2"></i>
+                            <span class="text-gray-400">123 Avenue des Fleurs, Casablanca</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-pink-500 mr-2"></i>
+                            <span class="text-gray-400">+212 5 22 12 34 56</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-pink-500 mr-2"></i>
+                            <span class="text-gray-400">contact@floralconcept.ma</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Floral Concept. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const valentinesDay = new Date(now.getFullYear(), 1, 14, 18, 0, 0); // February is month 1 (0-indexed)
+            
+            // If Valentine's Day has passed this year, set it for next year
+            if (now > valentinesDay) {
+                valentinesDay.setFullYear(valentinesDay.getFullYear() + 1);
+            }
+            
+            const diff = valentinesDay - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Form Submission
+        document.getElementById('contestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the data to your server
+            // For this demo, we'll just show a success message
+            document.getElementById('successMessage').classList.remove('hidden');
+            this.reset();
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // FAQ Accordion
+        const faqButtons = document.querySelectorAll('#faq button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

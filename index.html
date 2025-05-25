@@ -125,7 +125,7 @@
         .floating { animation: floating 3s ease-in-out infinite; }
         
         /* Specific Styles */
-        .site-header {
+        .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -134,14 +134,14 @@
             z-index: 100;
             border-bottom: 1px solid rgba(236, 72, 153, 0.1);
         }
-        .site-header .container { padding: 1rem 1.5rem; }
-        .site-logo { gap: 0.75rem; }
-        .site-logo i { font-size: 2rem; color: var(--primary); }
-        .site-logo h1 { font-size: 1.75rem; color: var(--secondary); font-family: var(--serif); }
+        .header .container { padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; }
+        .logo i { font-size: 2rem; }
+        .logo h1 { font-size: 1.75rem; color: var(--secondary); font-family: var(--serif); }
         
-        .main-navigation { display: none; }
-        .main-navigation ul { display: flex; gap: 2rem; list-style: none; }
-        .main-navigation a {
+        .nav { display: none; }
+        .nav ul { display: flex; gap: 2rem; list-style: none; }
+        .nav-link {
             color: var(--gray-dark);
             text-decoration: none;
             font-weight: 500;
@@ -150,13 +150,13 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        .main-navigation a:hover {
+        .nav-link:hover {
             color: var(--primary);
             background: rgba(236, 72, 153, 0.1);
             transform: translateY(-1px);
         }
         
-        .mobile-menu-button {
+        .mobile-menu-btn {
             background: none;
             border: 2px solid transparent;
             color: var(--gray-dark);
@@ -166,7 +166,7 @@
             border-radius: 0.5rem;
             transition: all 0.3s ease;
         }
-        .mobile-menu-button:hover {
+        .mobile-menu-btn:hover {
             color: var(--primary);
             border-color: rgba(236, 72, 153, 0.2);
             background: rgba(236, 72, 153, 0.05);
@@ -188,7 +188,7 @@
         }
         .mobile-menu.show { transform: translateY(0); opacity: 1; visibility: visible; }
         .mobile-menu ul { flex-direction: column; padding: 1.5rem 0; list-style: none; gap: 0.25rem; }
-        .mobile-menu a {
+        .mobile-menu .nav-link {
             color: var(--gray-dark);
             text-decoration: none;
             padding: 1rem 2rem;
@@ -196,14 +196,14 @@
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
         }
-        .mobile-menu a:hover {
+        .mobile-menu .nav-link:hover {
             background: linear-gradient(90deg, rgba(236, 72, 153, 0.1) 0%, transparent 100%);
             color: var(--primary);
             border-left-color: var(--primary);
             padding-left: 2.5rem;
         }
         
-        .hero-section {
+        .hero {
             background: linear-gradient(135deg, rgba(255,105,180,0.1) 0%, rgba(255,255,255,0.8) 50%, rgba(255,105,180,0.1) 100%);
             padding: 4rem 0;
         }
@@ -221,10 +221,8 @@
             font-size: 2.25rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            font-family: var(--serif);
         }
-        .hero-title span { color: var(--secondary); }
-        .hero-description { font-size: 1.125rem; color: var(--gray); margin-bottom: 2rem; }
+        .hero-description { font-size: 1.125rem; margin-bottom: 2rem; }
         .hero-features { flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
         .hero-feature {
             background: var(--white);
@@ -232,7 +230,7 @@
             border-radius: 50px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-        .hero-feature i { color: var(--primary); margin-right: 0.5rem; }
+        .hero-feature i { margin-right: 0.5rem; }
         .hero-image-container { position: relative; display: inline-block; margin: 0 auto; }
         .hero-image {
             border-radius: 0.5rem;
@@ -251,16 +249,12 @@
         .hero-decorator:first-of-type { top: 0.5rem; left: 0.5rem; }
         .hero-decorator:last-of-type { bottom: 0.5rem; right: 0.5rem; }
         .hero-decorator i { font-size: 1.5rem; }
-        .hero-decorator .fa-heart { color: var(--primary); }
-        .hero-decorator .fa-car { color: var(--accent); }
         
-        .countdown-section { padding: 3rem 0; background: var(--bg-pink); }
+        .countdown { padding: 3rem 0; }
         .countdown-title {
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            font-family: var(--serif);
-            text-align: center;
         }
         .countdown-items {
             display: flex;
@@ -292,17 +286,14 @@
         }
         
         .section { padding: 4rem 0; }
-        .section.bg-pink { background: var(--bg-pink); }
         .section-header { text-align: center; margin-bottom: 3rem; }
         .section-title {
             font-size: 1.875rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            font-family: var(--serif);
         }
         .section-description {
             font-size: 1.125rem;
-            color: var(--gray);
             max-width: 42rem;
             margin: 0 auto;
         }
@@ -319,10 +310,8 @@
             font-weight: 700;
         }
         .prize-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .prize-description { color: var(--gray); margin-bottom: 1rem; }
+        .prize-description { margin-bottom: 1rem; }
         .prize-winners { font-weight: 700; font-size: 1.125rem; }
-        .prize-winners.pink { color: var(--primary); }
-        .prize-winners.red { color: var(--accent); }
         
         .step { text-align: center; }
         .step-number {
@@ -425,11 +414,10 @@
             border: none;
             cursor: pointer;
         }
-        .faq-question i { color: var(--primary); transition: transform 0.3s ease; }
+        .faq-question i { transition: transform 0.3s ease; }
         .faq-question i.rotated { transform: rotate(180deg); }
         .faq-answer {
             margin-top: 0.75rem;
-            color: var(--gray);
             display: none;
         }
         .faq-answer.show { display: block; }
@@ -447,16 +435,16 @@
             margin-bottom: 1rem;
         }
         .footer-logo { gap: 0.5rem; margin-bottom: 1rem; }
-        .footer-logo i { font-size: 1.5rem; color: var(--primary); }
+        .footer-logo i { font-size: 1.5rem; }
         .footer-description { color: var(--gray-light); margin-bottom: 1rem; }
         .footer-social { gap: 1rem; }
-        .footer-social a { color: var(--gray-light); text-decoration: none; transition: color 0.15s ease; }
-        .footer-social a:hover { color: var(--primary); }
+        .footer-social-link { color: var(--gray-light); text-decoration: none; transition: color 0.15s ease; }
+        .footer-social-link:hover { color: var(--primary); }
         .footer-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-        .footer-list a { color: var(--gray-light); text-decoration: none; transition: color 0.15s ease; }
-        .footer-list a:hover { color: var(--primary); }
-        .footer-contact li { display: flex; align-items: center; margin-bottom: 0.5rem; }
-        .footer-contact i { color: var(--primary); margin-right: 0.5rem; }
+        .footer-link { color: var(--gray-light); text-decoration: none; transition: color 0.15s ease; }
+        .footer-link:hover { color: var(--primary); }
+        .footer-contact { display: flex; align-items: center; margin-bottom: 0.5rem; }
+        .footer-contact i { margin-right: 0.5rem; }
         .footer-contact span { color: var(--gray-light); }
         .footer-bottom {
             border-top: 1px solid #1f2937;
@@ -468,14 +456,14 @@
         
         /* Responsive */
         @media (min-width: 768px) {
-            .main-navigation { display: block; }
-            .mobile-menu-button { display: none; }
+            .nav { display: block; }
+            .mobile-menu-btn { display: none; }
             .hero-container { flex-direction: row; }
             .hero-content { width: 50%; margin-bottom: 0; }
             .hero-image-container { width: 50%; }
             .hero-decorator { padding: 1rem; }
             .hero-decorator i { font-size: 2.25rem; }
-            .hero-section { padding: 6rem 0; }
+            .hero { padding: 6rem 0; }
             .hero-title { font-size: 3rem; }
             .section-title { font-size: 2.25rem; }
             .countdown-title { font-size: 2rem; }
@@ -495,7 +483,6 @@
         @media (min-width: 1024px) {
             .hero-title { font-size: 3.75rem; }
         }
-    </style>
     </style>
 </head>
 <body>
@@ -575,117 +562,117 @@
     </section>
 
     <!-- Countdown Section -->
-    <section class="countdown-section">
-        <div class="countdown-container">
-            <h2 class="countdown-title">Le tirage au sort aura lieu dans :</h2>
+    <section class="countdown bg-pink py-8">
+        <div class="container text-center">
+            <h2 class="countdown-title font-serif">Le tirage au sort aura lieu dans :</h2>
             <div class="countdown-items">
-                <div class="countdown-item">
-                    <div class="countdown-item__number" id="days">00</div>
-                    <div class="countdown-item__label">Jours</div>
+                <div class="countdown-item bg-white rounded shadow">
+                    <div id="days">00</div>
+                    <div>Jours</div>
                 </div>
-                <div class="countdown-item">
-                    <div class="countdown-item__number" id="hours">00</div>
-                    <div class="countdown-item__label">Heures</div>
+                <div class="countdown-item bg-white rounded shadow">
+                    <div id="hours">00</div>
+                    <div>Heures</div>
                 </div>
-                <div class="countdown-item">
-                    <div class="countdown-item__number" id="minutes">00</div>
-                    <div class="countdown-item__label">Minutes</div>
+                <div class="countdown-item bg-white rounded shadow">
+                    <div id="minutes">00</div>
+                    <div>Minutes</div>
                 </div>
-                <div class="countdown-item">
-                    <div class="countdown-item__number" id="seconds">00</div>
-                    <div class="countdown-item__label">Secondes</div>
+                <div class="countdown-item bg-white rounded shadow">
+                    <div id="seconds">00</div>
+                    <div>Secondes</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Prizes Section -->
-    <section class="prizes-section">
-        <div class="prizes-container">
-            <div class="prizes-header">
-                <h2 class="prizes-title">Les lots à gagner</h2>
-                <p class="prizes-description">
+    <section class="section py-8">
+        <div class="container">
+            <div class="section-header text-center mb-6">
+                <h2 class="section-title font-serif">Les lots à gagner</h2>
+                <p class="section-description text-gray">
                     Découvrez les magnifiques prix que vous pourriez remporter pour cette Saint Valentin exceptionnelle
                 </p>
             </div>
             
-            <div class="prizes-grid">
+            <div class="grid grid-1">
                 <!-- Prize 1 -->
-                <div class="prize-card">
-                    <div class="prize-card__icon-container prize-card__icon-container--pink">
-                        <i class="prize-card__icon prize-card__icon--pink fas fa-gift"></i>
+                <div class="card">
+                    <div class="icon-container icon-md icon-pink mb-4">
+                        <i class="fas fa-gift"></i>
                     </div>
-                    <h3 class="prize-card__title">Bon d'achat 1000DH</h3>
-                    <p class="prize-card__description">
+                    <h3 class="prize-title">Bon d'achat 1000DH</h3>
+                    <p class="prize-description text-gray">
                         À dépenser dans notre boutique pour des fleurs, compositions et cadeaux.
                     </p>
-                    <div class="prize-card__winners prize-card__winners--pink">1 gagnant</div>
+                    <div class="prize-winners text-primary font-bold">1 gagnant</div>
                 </div>
                 
                 <!-- Prize 2 -->
-                <div class="prize-card">
-                    <div class="prize-card__icon-container prize-card__icon-container--pink">
-                        <i class="prize-card__icon prize-card__icon--pink fas fa-gift"></i>
+                <div class="card">
+                    <div class="icon-container icon-md icon-pink mb-4">
+                        <i class="fas fa-gift"></i>
                     </div>
-                    <h3 class="prize-card__title">Bon d'achat 500DH</h3>
-                    <p class="prize-card__description">
+                    <h3 class="prize-title">Bon d'achat 500DH</h3>
+                    <p class="prize-description text-gray">
                         Parfait pour offrir un magnifique bouquet à votre bien-aimé(e).
                     </p>
-                    <div class="prize-card__winners prize-card__winners--pink">3 gagnants</div>
+                    <div class="prize-winners text-primary font-bold">3 gagnants</div>
                 </div>
                 
                 <!-- Prize 3 -->
-                <div class="prize-card">
-                    <div class="prize-card__badge">
+                <div class="card" style="position: relative;">
+                    <div class="prize-badge">
                         GRAND PRIX
                     </div>
-                    <div class="prize-card__icon-container prize-card__icon-container--red">
-                        <i class="prize-card__icon prize-card__icon--red fas fa-car"></i>
+                    <div class="icon-container icon-md icon-red mb-4">
+                        <i class="fas fa-car"></i>
                     </div>
-                    <h3 class="prize-card__title">Renault Clio rouge</h3>
-                    <p class="prize-card__description">
+                    <h3 class="prize-title">Renault Clio rouge</h3>
+                    <p class="prize-description text-gray">
                         Une voiture flamboyante pour une Saint Valentin inoubliable.
                     </p>
-                    <div class="prize-card__winners prize-card__winners--red">1 gagnant</div>
+                    <div class="prize-winners text-accent font-bold">1 gagnant</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How to Participate Section -->
-    <section class="participate-section">
-        <div class="participate-container">
-            <div class="participate-header">
-                <h2 class="participate-title">Comment participer ?</h2>
-                <p class="participate-description">
+    <section class="section bg-pink py-8">
+        <div class="container">
+            <div class="section-header text-center mb-6">
+                <h2 class="section-title font-serif">Comment participer ?</h2>
+                <p class="section-description text-gray">
                     C'est très simple et rapide pour tenter de remporter l'un de nos fabuleux lots
                 </p>
             </div>
             
-            <div class="participate-steps">
+            <div class="grid grid-1 gap-4">
                 <!-- Step 1 -->
-                <div class="participate-step">
-                    <div class="participate-step__number">1</div>
-                    <h3 class="participate-step__title">Entrez votre numéro</h3>
-                    <p class="participate-step__description">
+                <div class="step text-center">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Entrez votre numéro</h3>
+                    <p class="step-description text-gray">
                         Renseignez votre numéro de téléphone dans le formulaire de participation
                     </p>
                 </div>
                 
                 <!-- Step 2 -->
-                <div class="participate-step">
-                    <div class="participate-step__number">2</div>
-                    <h3 class="participate-step__title">Validez votre participation</h3>
-                    <p class="participate-step__description">
+                <div class="step text-center">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Validez votre participation</h3>
+                    <p class="step-description text-gray">
                         Confirmez votre participation en cliquant sur le lien que vous recevrez par SMS
                     </p>
                 </div>
                 
                 <!-- Step 3 -->
-                <div class="participate-step">
-                    <div class="participate-step__number">3</div>
-                    <h3 class="participate-step__title">Attendez le tirage</h3>
-                    <p class="participate-step__description">
+                <div class="step text-center">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Attendez le tirage</h3>
+                    <p class="step-description text-gray">
                         Le tirage au sort aura lieu le 14 février à 18h. Les gagnants seront contactés par téléphone
                     </p>
                 </div>
@@ -694,17 +681,17 @@
     </section>
 
     <!-- Participation Form -->
-    <section id="participer" class="form-section">
-        <div class="form-container">
+    <section id="participer" class="section py-8">
+        <div class="container">
             <div class="form-wrapper">
-                <div class="form-header">
-                    <h2 class="form-title">Participez au concours</h2>
-                    <p class="form-description">
+                <div class="section-header text-center mb-6">
+                    <h2 class="section-title font-serif">Participez au concours</h2>
+                    <p class="section-description text-gray">
                         Entrez votre numéro de téléphone pour tenter de gagner l'un de nos fabuleux lots
                     </p>
                 </div>
                 
-                <form id="contestForm" class="contest-form">
+                <form id="contestForm">
                     <div class="form-field">
                         <label for="phone" class="form-label">Numéro de téléphone</label>
                         <div class="form-input-container">
@@ -712,7 +699,7 @@
                                 <span>+212</span>
                             </div>
                             <input type="tel" id="phone" name="phone" placeholder="6 12 34 56 78" 
-                                   class="form-input form-input--with-prefix" 
+                                   class="form-input with-prefix" 
                                    required pattern="[67][0-9]{8}" title="Entrez un numéro marocain valide (9 chiffres commençant par 6 ou 7)" maxlength="9">
                         </div>
                     </div>
@@ -725,14 +712,14 @@
                     </div>
                     
                     <div>
-                        <button type="submit" class="form-submit-button">
-                            Valider ma participation <i class="form-submit-button__icon fas fa-paper-plane"></i>
+                        <button type="submit" class="btn btn-primary form-submit">
+                            Valider ma participation <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
                 </form>
                 
                 <div id="successMessage" class="success-message">
-                    <i class="success-message__icon fas fa-check-circle"></i>
+                    <i class="fas fa-check-circle"></i>
                     <span>Votre participation a bien été enregistrée ! Un SMS de confirmation vous a été envoyé.</span>
                 </div>
             </div>
@@ -740,23 +727,23 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials-section">
-        <div class="testimonials-container">
-            <div class="testimonials-header">
-                <h2 class="testimonials-title">Ils nous font confiance</h2>
-                <p class="testimonials-description">
+    <section class="section bg-pink py-8">
+        <div class="container">
+            <div class="section-header text-center mb-6">
+                <h2 class="section-title font-serif">Ils nous font confiance</h2>
+                <p class="section-description text-gray">
                     Découvrez ce que nos clients disent de Floral Concept
                 </p>
             </div>
             
-            <div class="testimonials-grid">
+            <div class="grid grid-1 gap-4">
                 <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
+                <div class="testimonial-card card">
+                    <div class="testimonial-header flex items-center mb-4">
                         <div class="testimonial-avatar">A</div>
                         <div class="testimonial-info">
                             <h4>Amine</h4>
-                            <div class="testimonial-rating">
+                            <div class="testimonial-rating flex">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -765,18 +752,18 @@
                             </div>
                         </div>
                     </div>
-                    <p class="testimonial-content">
+                    <p class="testimonial-content text-gray">
                         "J'ai offert un bouquet à ma femme pour notre anniversaire, elle était ravie ! Le service est impeccable et les fleurs durent longtemps."
                     </p>
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
+                <div class="testimonial-card card">
+                    <div class="testimonial-header flex items-center mb-4">
                         <div class="testimonial-avatar">S</div>
                         <div class="testimonial-info">
                             <h4>Salma</h4>
-                            <div class="testimonial-rating">
+                            <div class="testimonial-rating flex">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -785,18 +772,18 @@
                             </div>
                         </div>
                     </div>
-                    <p class="testimonial-content">
+                    <p class="testimonial-content text-gray">
                         "Livraison toujours à l'heure, fleurs fraîches et magnifiques. Je recommande Floral Concept pour toutes les occasions spéciales."
                     </p>
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
+                <div class="testimonial-card card">
+                    <div class="testimonial-header flex items-center mb-4">
                         <div class="testimonial-avatar">Y</div>
                         <div class="testimonial-info">
                             <h4>Youssef</h4>
-                            <div class="testimonial-rating">
+                            <div class="testimonial-rating flex">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -805,7 +792,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="testimonial-content">
+                    <p class="testimonial-content text-gray">
                         "Concours génial ! J'ai gagné un bon d'achat de 200DH l'année dernière. Cette année j'espère la voiture ! Service client très réactif."
                     </p>
                 </div>
@@ -814,57 +801,59 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq-section">
-        <div class="faq-container">
-            <div class="faq-header">
-                <h2 class="faq-title">Questions fréquentes</h2>
-                <p class="faq-description">
-                    Trouvez les réponses aux questions les plus posées sur notre concours
-                </p>
-            </div>
-            
-            <div class="faq-list">
-                <!-- Question 1 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Qui peut participer au concours ?</span>
-                        <i class="faq-question__icon fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Toute personne résidant au Maroc et âgée de 18 ans ou plus peut participer au concours. Un seul participation par numéro de téléphone est autorisée.</p>
-                    </div>
+    <section class="section py-8">
+        <div class="container">
+            <div class="faq-container">
+                <div class="section-header text-center mb-6">
+                    <h2 class="section-title font-serif">Questions fréquentes</h2>
+                    <p class="section-description text-gray">
+                        Trouvez les réponses aux questions les plus posées sur notre concours
+                    </p>
                 </div>
                 
-                <!-- Question 2 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Comment serai-je informé si je gagne ?</span>
-                        <i class="faq-question__icon fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Les gagnants seront contactés par téléphone dans les 48 heures suivant le tirage au sort. Nous publierons également les résultats sur notre page Facebook officielle.</p>
+                <div class="faq-list">
+                    <!-- Question 1 -->
+                    <div class="faq-item card">
+                        <button class="faq-question">
+                            <span>Qui peut participer au concours ?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer text-gray">
+                            <p>Toute personne résidant au Maroc et âgée de 18 ans ou plus peut participer au concours. Un seul participation par numéro de téléphone est autorisée.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Question 3 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Quand aura lieu le tirage au sort ?</span>
-                        <i class="faq-question__icon fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Le tirage au sort aura lieu le 14 février 2025 à 18h00 (heure marocaine) dans nos locaux. Le processus sera filmé et disponible sur notre site web.</p>
+                    
+                    <!-- Question 2 -->
+                    <div class="faq-item card">
+                        <button class="faq-question">
+                            <span>Comment serai-je informé si je gagne ?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer text-gray">
+                            <p>Les gagnants seront contactés par téléphone dans les 48 heures suivant le tirage au sort. Nous publierons également les résultats sur notre page Facebook officielle.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Question 4 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Comment récupérer mon prix si je gagne ?</span>
-                        <i class="faq-question__icon fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Pour les bons d'achat : vous recevrez un code par SMS à utiliser sur notre site web ou en boutique. Pour la voiture : vous serez invité à venir la récupérer dans notre agence partenaire avec les documents nécessaires.</p>
+                    
+                    <!-- Question 3 -->
+                    <div class="faq-item card">
+                        <button class="faq-question">
+                            <span>Quand aura lieu le tirage au sort ?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer text-gray">
+                            <p>Le tirage au sort aura lieu le 14 février 2025 à 18h00 (heure marocaine) dans nos locaux. Le processus sera filmé et disponible sur notre site web.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 4 -->
+                    <div class="faq-item card">
+                        <button class="faq-question">
+                            <span>Comment récupérer mon prix si je gagne ?</span>
+                            <i class="fas fa-chevron-down text-primary"></i>
+                        </button>
+                        <div class="faq-answer text-gray">
+                            <p>Pour les bons d'achat : vous recevrez un code par SMS à utiliser sur notre site web ou en boutique. Pour la voiture : vous serez invité à venir la récupérer dans notre agence partenaire avec les documents nécessaires.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -873,24 +862,24 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="site-footer__container">
+        <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="footer-logo__icon fas fa-leaf"></i>
+                    <div class="footer-logo flex items-center">
+                        <i class="fas fa-leaf text-primary"></i>
                         <h3>Floral Concept</h3>
                     </div>
                     <p class="footer-description">
                         Créateur d'émotions florales depuis 10 ans. Offrez le meilleur pour vos proches.
                     </p>
-                    <div class="footer-social">
-                        <a href="#" class="footer-social__link">
+                    <div class="footer-social flex">
+                        <a href="#" class="footer-social-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="footer-social__link">
+                        <a href="#" class="footer-social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="footer-social__link">
+                        <a href="#" class="footer-social-link">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
@@ -899,38 +888,38 @@
                 <div class="footer-section">
                     <h4>Liens utiles</h4>
                     <ul class="footer-list">
-                        <li><a href="#" class="footer-list__link">Accueil</a></li>
-                        <li><a href="#" class="footer-list__link">Boutique</a></li>
-                        <li><a href="#" class="footer-list__link">Services</a></li>
-                        <li><a href="#" class="footer-list__link">Blog</a></li>
-                        <li><a href="#" class="footer-list__link">Contact</a></li>
+                        <li><a href="#" class="footer-link">Accueil</a></li>
+                        <li><a href="#" class="footer-link">Boutique</a></li>
+                        <li><a href="#" class="footer-link">Services</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Informations</h4>
                     <ul class="footer-list">
-                        <li><a href="#" class="footer-list__link">CGV</a></li>
-                        <li><a href="#" class="footer-list__link">Mentions légales</a></li>
-                        <li><a href="#" class="footer-list__link">Politique de confidentialité</a></li>
-                        <li><a href="#" class="footer-list__link">Conditions du concours</a></li>
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">Mentions légales</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">Conditions du concours</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul class="footer-list">
-                        <li class="footer-contact-item">
-                            <i class="footer-contact-item__icon fas fa-map-marker-alt"></i>
-                            <span class="footer-contact-item__text">123 Avenue des Fleurs, Casablanca</span>
+                        <li class="footer-contact">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <span>123 Avenue des Fleurs, Casablanca</span>
                         </li>
-                        <li class="footer-contact-item">
-                            <i class="footer-contact-item__icon fas fa-phone"></i>
-                            <span class="footer-contact-item__text">+212 5 22 12 34 56</span>
+                        <li class="footer-contact">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span>+212 5 22 12 34 56</span>
                         </li>
-                        <li class="footer-contact-item">
-                            <i class="footer-contact-item__icon fas fa-envelope"></i>
-                            <span class="footer-contact-item__text">contact@floralconcept.ma</span>
+                        <li class="footer-contact">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span>contact@floralconcept.ma</span>
                         </li>
                     </ul>
                 </div>
@@ -944,7 +933,7 @@
 
     <script>
         // Mobile Menu Toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenuButton = document.querySelector('.mobile-menu-btn');
         const mobileMenu = document.getElementById('mobileMenu');
         
         mobileMenuButton.addEventListener('click', () => {
@@ -968,7 +957,7 @@
         });
         
         // Close mobile menu when clicking on a link
-        document.querySelectorAll('.mobile-menu__link').forEach(link => {
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('show');
                 mobileMenuButton.setAttribute('aria-expanded', 'false');
@@ -1036,6 +1025,7 @@
             phoneInput.style.borderColor = '#d1d5db';
             
             // Simulate form submission
+            document.getElementById('successMessage').classList.add('show');
             document.getElementById('successMessage').classList.remove('hidden');
             this.reset();
             
@@ -1048,13 +1038,13 @@
         faqButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const answer = button.nextElementSibling;
-                const icon = button.querySelector('.faq-question__icon');
+                const icon = button.querySelector('i');
                 
                 // Close other open FAQ items
                 faqButtons.forEach(otherButton => {
                     if (otherButton !== button) {
                         const otherAnswer = otherButton.nextElementSibling;
-                        const otherIcon = otherButton.querySelector('.faq-question__icon');
+                        const otherIcon = otherButton.querySelector('i');
                         otherAnswer.classList.remove('show');
                         otherIcon.classList.remove('rotated');
                     }

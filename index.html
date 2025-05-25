@@ -231,7 +231,16 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         .hero-feature i { margin-right: 0.5rem; }
-        .hero-image-container { position: relative; display: inline-block; margin: 0 auto; }
+        .hero-image-container { 
+            position: relative; 
+            display: flex; 
+            justify-content: flex-end; 
+            margin: 0 auto; 
+        }
+        .hero-image-wrapper {
+            position: relative;
+            display: inline-block;
+        }
         .hero-image {
             border-radius: 0.5rem;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -272,17 +281,23 @@
             flex: 1;
             max-width: 5rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .countdown-item div:first-child {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--secondary);
             line-height: 1;
+            text-align: center;
         }
         .countdown-item div:last-child {
             color: var(--gray);
             font-size: 0.75rem;
             margin-top: 0.25rem;
+            text-align: center;
         }
         
         .section { padding: 4rem 0; }
@@ -472,8 +487,15 @@
                 min-width: 6rem;
                 max-width: 8rem;
                 flex: 0 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
             }
-            .countdown-item div:first-child { font-size: 3rem; }
+            .countdown-item div:first-child { 
+                font-size: 3rem; 
+                text-align: center;
+            }
             .countdown-items { gap: 2rem; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); }
             .form-wrapper { padding: 3rem; }
@@ -550,12 +572,14 @@
                 </a>
             </div>
             <div class="hero-image-container">
-                <img src="assets/flower.avif" alt="Bouquet de fleurs" class="hero-image">
-                <div class="hero-decorator heartbeat">
-                    <i class="fas fa-heart text-primary"></i>
-                </div>
-                <div class="hero-decorator floating">
-                    <i class="fas fa-car text-accent"></i>
+                <div class="hero-image-wrapper">
+                    <img src="assets/flower.avif" alt="Bouquet de fleurs" class="hero-image">
+                    <div class="hero-decorator heartbeat">
+                        <i class="fas fa-heart text-primary"></i>
+                    </div>
+                    <div class="hero-decorator floating">
+                        <i class="fas fa-car text-primary"></i>
+                    </div>
                 </div>
             </div>
         </div>
